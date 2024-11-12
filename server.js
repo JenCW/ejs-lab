@@ -1,3 +1,4 @@
+const { compile } = require('ejs');
 const express = require('express');
 const app = express();
 const PORT = 3000;
@@ -57,7 +58,6 @@ const menu = [
 
 app.get('/', (req, res) => {
   const message = restaurant.isOpen ? 'Welcome to The Green Byte Bistro- Yes We are Open!' : 'Sorry, we are currently closed.';
-
   res.render('home.ejs', {
       message: message,
       restaurant: restaurant,
@@ -65,12 +65,23 @@ app.get('/', (req, res) => {
   })
 });
 
-app.get('/menu', (req, res) => {
+app.get('/menu/', (req, res) => {
   res.render('menu.ejs', {
     menu: menu,
   });
 });
 
+app.get('/menu/:category', (req, res) => {
+    const category = req.params.category;
+    const menuItems = menu.filter(item => item.category === category);
+    // Capitalize the category name
+     const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
+
+  res.render('category.ejs', {
+    categoryName: categoryName,
+    menuItems: menuItems,
+  });
+});
 
 
 
