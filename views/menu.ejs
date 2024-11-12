@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Menu </title>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+
+    <h1> Full Menu </h1>
+    <!-- Loop through each item in the menu -->
+  <% menu.forEach(item => { %>
+    <!-- Display the name of the item -->
+    <p style="font-size: large;"><strong><%= item.name %></strong></p>
+    <!-- Display the price, formatted to two decimal places -->
+    <p style="font-size: large;">Price: $<%= item.price %></p>
+    <!-- Display the rating out of 5 -->
+    <p style="font-size: large;">Rating: <%= item.rating %>/5</p>
+    <!-- Display the details about the item -->
+    <p style="font-size: large;"><%= item.details %></p>
+    <hr> <!-- A line to separate each item -->
+  <% }); %>
+
+</body>
+</html>

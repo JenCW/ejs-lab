@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= restaurant.name %></title>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+    <h1>Home Page</h1>
+    <h2 style="text-align: center;"><%= restaurant.name %></h2>
+    <h3 style="text-align: center;"><%= restaurant.address %></h3>
+    <h3 style="text-align: center;"><%= restaurant.phone %></h3>
+    <h3 style="text-align: center;"><%= restaurant.hours %></h3>
+    <p style="text-align: center;"><%= message %></p>
+</body>
+</html>
